@@ -1,24 +1,6 @@
-// problem domain:
-// Pat needs to calculate the number of cookies each location must make each day so the company can manage supplies inventory and baking schedule.
-//  number of cookies to make for each location
-//    depends on following factors:
-//      hours of operation for each location ("6am to 8pm" for all locations)
-//      minimum # of customers per hour (provided)
-//      maximum # of customers per hour (provided)
-//      average number of cookies purchased per customer (provided)
-// Pat wants adapatability so she can:
-//    add/remove locations from daily projections report,
-//    modify input numbers for each location based on day of the week, special events, etc.
-// Pat wants nice formatting in the web application.
-// Pat wants customer-facing website designed, too.
-//    a color scheme,
-//    custom font,
-//    additional images
-
 'use strict';
 
-// separate object for each shop location
-
+// object constructor to create cookie stores
 function CookieStores (shopName,minCustomers,maxCustomers,avgCookiesPerCustomer) {
   this.shopName = shopName;
   this.minCustomers = minCustomers;
@@ -35,27 +17,33 @@ function randomNumberGenerator (min, max) {
   return Math.floor(Math.random() * (max - min + 1 ) + min);
 };
 
-
-// var shopArray = ['firstPike','seatac', 'seattleCenter', 'capHill', 'alki'];
-
-
-// var thead = document.createElement('thead');
-// var th1_1 = document.createElement('th');
-// th1_1.textContent = ' ';
-// var th1_2 = document.createElement('th');
-// th1_2.textContent = firstPike.storeHours[0];
-// var th1_3 = document.createElement('th');
-// th1_3.textContent = firstPike.storeHours[1];
-// var th1_4 = document.createElement('th');
-// th1_4.textContent = firstPike.storeHours[2];
-
+// Initialize table and create header for table with store hours
 var parentEl = document.getElementById('needs');
 var table = document.createElement('table');
+var thead = document.createElement('thead');
+
+CookieStores.prototype.addHeader = addHeader;
+
+function addHeader() {
+  var row = document.createElement('tr');
+  var thBlank = document.createElement('th');
+  thBlank.textContent = ' ';
+  row.appendChild(thBlank);
+  for (var j = 0; j < this.storeHours.length; j++) {
+    var th = document.createElement('th');
+    th.textContent = this.storeHours[j];
+    row.appendChild(th);
+  }
+  var thTotal = document.createElement('th');
+  thTotal.textContent = 'Totals';
+  row.appendChild(thTotal);
+  thead.appendChild(row);
+}
+
+// create body of table and method to populate the table with cookie needs and totals
 var tbody = document.createElement('tbody');
 
-
 CookieStores.prototype.render = render;
-
 
 function render() {
   var row = document.createElement('tr');
@@ -71,44 +59,39 @@ function render() {
     this.cookiesPerHour = Math.ceil(this.customersPerHour * this.avgCookiesPerCustomer);
     td.textContent = this.cookiesPerHour;
     row.appendChild(td);
-    // loc.totalCookies += loc.cookiesPerHour;
-    tbody.appendChild(row);
+    this.totalCookies += this.cookiesPerHour;
   };
+  var totalTh = document.createElement('th');
+  totalTh.textContent = this.totalCookies;
+  row.appendChild(totalTh);
+  tbody.appendChild(row);
 }
 
+// create store location objects
 var firstPike = new CookieStores ('1st and Pike', 23, 65, 6.3);
 var seatac = new CookieStores ('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new CookieStores ('Seattle Center', 11, 38, 3.7);
 var capHill = new CookieStores ('Capitol Hill', 20, 38, 2.3);
 var alki = new CookieStores ('Alki', 2, 16, 4.6);
 
+// add cells and cookie needs and totals to table
+firstPike.addHeader();
 firstPike.render();
 seatac.render();
 seattleCenter.render();
 capHill.render();
 alki.render();
 
+// Add footer
+// TODO: need to add totals per hour across locations to this footer
+var tfoot = document.createElement('tfoot');
+var rowFoot = document.createElement('tr');
+var thFoot = document.createElement('th');
+thFoot.textContent = 'Total per hour';
+rowFoot.appendChild(thFoot);
+tfoot.appendChild(rowFoot);
+table.appendChild(tfoot);
+
+table.appendChild(thead);
 table.appendChild(tbody);
 parentEl.appendChild(table);
-
-// table.appendChild(thead);
-// row.appendChild(th1_1);
-// row1.appendChild(th1_2);
-// row1.appendChild(th1_3);
-// row1.appendChild(th1_4);
-
-// var td2_2 = document.createElement('td');
-// th2_2.textContent =
-// var td2_3 = document.createElement('td');
-// var td2_4 = document.createElement('td');
-
-// var row3 = document.createElement('tr');
-// var row4 = document.createElement('tr');
-// var row5 = document.createElement('tr');
-// var row6 = document.createElement('tr');
-
-  // calculate and list cookies sold per hour and total cookies
-// firstPike.getCustomersPerHour();
-// var liTotal = document.createElement('li');
-// liTotal.textContent = 'Total: ' + shop.totalCookies + ' cookies';
-// ul.appendChild(liTotal);
