@@ -35,46 +35,67 @@ function randomNumberGenerator (min, max) {
   return Math.floor(Math.random() * (max - min + 1 ) + min);
 };
 
+
+// var shopArray = ['firstPike','seatac', 'seattleCenter', 'capHill', 'alki'];
+
+
+// var thead = document.createElement('thead');
+// var th1_1 = document.createElement('th');
+// th1_1.textContent = ' ';
+// var th1_2 = document.createElement('th');
+// th1_2.textContent = firstPike.storeHours[0];
+// var th1_3 = document.createElement('th');
+// th1_3.textContent = firstPike.storeHours[1];
+// var th1_4 = document.createElement('th');
+// th1_4.textContent = firstPike.storeHours[2];
+
+var parentEl = document.getElementById('needs');
+var table = document.createElement('table');
+var tbody = document.createElement('tbody');
+
+
+CookieStores.prototype.render = render;
+
+
+function render() {
+  var row = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = this.shopName;
+  row.appendChild(th);
+
+  this.totalCookies = 0;
+
+  for (var i = 0; i < this.storeHours.length; i++) {
+    var td = document.createElement('td');
+    this.getCustomersPerHour();
+    this.cookiesPerHour = Math.ceil(this.customersPerHour * this.avgCookiesPerCustomer);
+    td.textContent = this.cookiesPerHour;
+    row.appendChild(td);
+    // loc.totalCookies += loc.cookiesPerHour;
+    tbody.appendChild(row);
+  };
+}
+
 var firstPike = new CookieStores ('1st and Pike', 23, 65, 6.3);
 var seatac = new CookieStores ('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new CookieStores ('Seattle Center', 11, 38, 3.7);
 var capHill = new CookieStores ('Capitol Hill', 20, 38, 2.3);
 var alki = new CookieStores ('Alki', 2, 16, 4.6);
 
+firstPike.render();
+seatac.render();
+seattleCenter.render();
+capHill.render();
+alki.render();
 
-// objects added to sales.html in list format
-// var article = document.createElement('article');
-// parentEl.appendChild(article);
-// var h2 = document.createElement('h2');
-// h2.textContent = shop.location;
-// article.appendChild(h2);
-// var ul = document.createElement('ul');
-// article.appendChild(ul);
-var parentEl = document.getElementById('needs');
-var table = document.createElement('table');
-var thead = document.createElement('thead');
-var row1 = document.createElement('tr');
+table.appendChild(tbody);
+parentEl.appendChild(table);
 
-
-var th1_1 = document.createElement('th');
-th1_1.textContent = ' ';
-var th1_2 = document.createElement('th');
-th1_2.textContent = firstPike.storeHours[0];
-var th1_3 = document.createElement('th');
-th1_3.textContent = firstPike.storeHours[1];
-var th1_4 = document.createElement('th');
-th1_4.textContent = firstPike.storeHours[2];
-
-var tbody = document.createElement('tbody');
-var row2 = document.createElement('tr');
-var th2_1 = document.createElement('th');
-th2_1.textContent = firstPike.shopName;
-
-row1.appendChild(th1_1);
-row1.appendChild(th1_2);
-row1.appendChild(th1_3);
-row1.appendChild(th1_4);
-row2.appendChild(th2_1);
+// table.appendChild(thead);
+// row.appendChild(th1_1);
+// row1.appendChild(th1_2);
+// row1.appendChild(th1_3);
+// row1.appendChild(th1_4);
 
 // var td2_2 = document.createElement('td');
 // th2_2.textContent =
@@ -86,27 +107,8 @@ row2.appendChild(th2_1);
 // var row5 = document.createElement('tr');
 // var row6 = document.createElement('tr');
 
-
-
   // calculate and list cookies sold per hour and total cookies
 // firstPike.getCustomersPerHour();
-firstPike.totalCookies = 0;
-// firstPike.cookiesPerHour = [];
-// firstPike.customersPerHour = [];
-
-for (var i = 0; i < firstPike.storeHours.length; i++) {
-  var td = document.createElement('td');
-  firstPike.getCustomersPerHour();
-  firstPike.cookiesPerHour = Math.ceil(firstPike.customersPerHour * firstPike.avgCookiesPerCustomer);
-  td.textContent = firstPike.cookiesPerHour;
-  row2.appendChild(td);
-  // firstPike.totalCookies += firstPike.cookiesPerHour;
-};
-
-tbody.appendChild(row2);
-thead.appendChild(row1);
-table.appendChild(thead);
-parentEl.appendChild(table);
 // var liTotal = document.createElement('li');
 // liTotal.textContent = 'Total: ' + shop.totalCookies + ' cookies';
 // ul.appendChild(liTotal);
