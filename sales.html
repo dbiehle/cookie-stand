@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Sales</title>
+    <link href="css/sales-style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -14,13 +15,13 @@
         <fieldset>
           <legend>Cookie Store information</legend>
           <label>Location</label>
-          <input type="text" name="shopName"/>
+          <input type="text" name="shopName" required="required" />
           <label>Minimum Customers Per Hour</label>
-          <input type="text" name="minCustomers" />
+          <input type="text" name="minCustomers" required="required" />
           <label>Maximum Customers Per Hour</label>
-          <input type="text" name="maxCustomers" />
+          <input type="text" name="maxCustomers" required="required" />
           <label>Average # of Cookies Per Customer</label>
-          <input type="text" name="avgCookiesPerCustomer">
+          <input type="text" name="avgCookiesPerCustomer" required="required" />
           <button type="submit">Enter</button>
         </fieldset>
       </form>
