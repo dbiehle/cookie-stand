@@ -8,22 +8,69 @@ serif web font for text
 Background color for default page
 different background color for elements
 ------------------------------------------------------*/
+* {
+  background-color: rgb(198, 224, 233);
+}
+
 body {
-  font-family: serif;
+  font-family: Garamond, Palatino, Times, serif;
+  font-size: 24px;
+  color: rgb(9, 51, 75);
+  border: 10px solid;
+}
+
+
+#salmon, #cookie {
+  width: 72%;
+  margin: 80px auto 0px auto;
+  display: block;
+  align-items: center;
 }
 
 h1 {
   font-family: "Vast Shadow", cursive;
   font-size: 48px;
+  color: rgb(34, 148, 11);
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+  border-style: solid;
+  border-color: rgb(9, 51, 75);
+  border-width: 10px 0px 10px 0px;
+  padding: 20px;
 }
 
-img {
-  width:20%;
+#cookie {
+  width: 40%;
+  border-width: 10px;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 36px;
+  width: 80%;
+  margin: 0px auto 40px auto;
+  text-align: center;
+}
+
+#locations {
+  border-style: double;
+  padding: 10px;
+  margin: 0px 10px 0px 10px;
+  border-width: 5px 0px 5px 0px;
+  border-color: rgb(9, 51, 75);
+}
+
+#chinook, #family {
+  display: block;
+  margin: 40px 5px 40px 5px;
+  width: 90%;
 }
 
 nav ul li {
   display: inline;
 }
+
 /* PSC grid system
 ---------------------------*/
 .row, .column {
