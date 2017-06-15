@@ -2,90 +2,30 @@
 <html>
   <head>
     <title>Sales</title>
+    <link href="css/sales-style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>Internal Sales Data</h1>
     </header>
     <main id="needs">
-      <!-- <table>
-        <thead>
-          <tr>
-            <th>
-            </th>
-            <th>
-              6am
-            </th>
-            <th>
-              7am
-            </th>
-            <th>
-              8am
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              first &amp; pike
-            </th>
-            <td>
-              400 cookies
-            </td>
-            <td>
-              600 cookies
-            </td>
-            <td>
-              500 cookies
-            </td>
-          </tr>
-          <tr>
-            <th>
-              seatac
-            </th>
-            <td>
-              400 cookies
-            </td>
-            <td>
-              600 cookies
-            </td>
-            <td>
-              500 cookies
-            </td>
-          </tr>
-          <tr>
-            <th>
-              seattle center
-            </th>
-            <td>
-              400 cookies
-            </td>
-            <td>
-              600 cookies
-            </td>
-            <td>
-              500 cookies
-            </td>
-          </tr>
-        </body>
-        <tfoot>
-          <tr>
-            <th>
-              total
-            </td>
-            <td>
-              1600 cookies
-            </td>
-            <td>
-              2000 cookies
-            </td>
-            <td>
-              1000 cookies
-            </td>
-          </tr>
-        </tfoot>
-      </table> -->
     </main>
+    <article>
+      <form id="addStoreForm">
+        <fieldset>
+          <legend>Cookie Store information</legend>
+          <label>Location</label>
+          <input type="text" name="shopName" required="required" />
+          <label>Minimum Customers Per Hour</label>
+          <input type="text" name="minCustomers" required="required" />
+          <label>Maximum Customers Per Hour</label>
+          <input type="text" name="maxCustomers" required="required" />
+          <label>Average # of Cookies Per Customer</label>
+          <input type="text" name="avgCookiesPerCustomer" required="required" />
+          <button type="submit">Enter</button>
+        </fieldset>
+      </form>
+    </article>
     <footer>
       <script src="js/app.js"></script>
     </footer>
