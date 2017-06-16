@@ -2,11 +2,16 @@
 <html>
   <head>
     <title>Sales</title>
+    <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
     <link href="css/sales-style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>Internal Sales Data</h1>
+      <div id="logo">
+        <img id="salmon" src="images/salmon.png"/>
+        <h3>Pat's Salmon Cookies</h3>
+      </div>
     </header>
     <main id="needs">
     </main>
@@ -14,14 +19,22 @@
       <form id="addStoreForm">
         <fieldset>
           <legend>Cookie Store information</legend>
-          <label>Location</label>
-          <input type="text" name="shopName" required="required" />
-          <label>Minimum Customers Per Hour</label>
-          <input type="text" name="minCustomers" required="required" />
-          <label>Maximum Customers Per Hour</label>
-          <input type="text" name="maxCustomers" required="required" />
-          <label>Average # of Cookies Per Customer</label>
-          <input type="text" name="avgCookiesPerCustomer" required="required" />
+          <label>
+            <input type="text" name="shopName" required="required" />
+            Location
+          </label>
+          <label>
+            <input type="text" name="minCustomers" required="required" />
+            Minimum Customers Per Hour
+          </label>
+          <label>
+            <input type="text" name="maxCustomers" required="required" />
+            Maximum Customers Per Hour
+          </label>
+          <label>
+            <input type="text" name="avgCookiesPerCustomer" required="required" />
+            Average # of Cookies Per Customer
+          </label>
           <button type="submit">Enter</button>
         </fieldset>
       </form>

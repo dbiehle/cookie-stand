@@ -1,12 +1,40 @@
 * {
   font-family: sans-serif;
+  background-color: rgb(198, 224, 233);
+}
+
+
+img {
+  width: 30%;
+  margin: 0px auto 0px auto;
+  display: block;
+  float: right;
+}
+
+h3 {
+  font-family: "Vast Shadow", cursive;
+  font-size: 24px;
+  color: rgb(34, 148, 11);
+  width: 30%;
+  margin: 20px auto;
+  text-align: center;
+  float: right;
+  border-style: solid;
+  border-color: rgb(9, 51, 75);
+  border-width: 5px 0px 5px 0px;
+  padding: 10px;
+}
+
+h1 {
+  margin: 20px;
+  float: left;
 }
 
 article {
   margin-top: 20px;
 }
 
-input {
+label {
   display: block;
   margin: 10px 5px;
 }
