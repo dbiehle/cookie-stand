@@ -7,6 +7,8 @@ function CookieStores (shopName,minCustomers,maxCustomers,avgCookiesPerCustomer)
   this.maxCustomers = maxCustomers;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.storeHours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+  this.customersPerHour = [];
+  this.cookiesPerHour = [];
 };
 
 // function to return random number of customers per hour
@@ -80,11 +82,11 @@ function render() {
 
   for (var i = 0; i < this.storeHours.length; i++) {
     var td = document.createElement('td');
-    this.customersPerHour = this.getCustomersPerHour();
-    this.cookiesPerHour = Math.ceil(this.customersPerHour * this.avgCookiesPerCustomer);
-    td.textContent = this.cookiesPerHour;
+    this.customersPerHour[i] = this.getCustomersPerHour();
+    this.cookiesPerHour[i] = Math.ceil(this.customersPerHour[i] * this.avgCookiesPerCustomer);
+    td.textContent = this.cookiesPerHour[i];
     row.appendChild(td);
-    this.totalCookies += this.cookiesPerHour;
+    this.totalCookies += this.cookiesPerHour[i];
   };
   var totalTh = document.createElement('th');
   totalTh.textContent = this.totalCookies;
@@ -94,7 +96,6 @@ function render() {
 
 
 // Add footer
-// TODO: need to add totals per hour across locations to this footer
 var tfoot = document.createElement('tfoot');
 var rowFoot = document.createElement('tr');
 var thFoot = document.createElement('th');
@@ -106,3 +107,10 @@ table.appendChild(tfoot);
 table.appendChild(thead);
 table.appendChild(tbody);
 parentEl.appendChild(table);
+
+// TODO: figure out this total per hour on footer thing
+// var totalCookiesPerHour = [];
+// totalCookiesPerHour[i] = this.cookiesPerHour[i];
+// console.log('totalCookiesPerHour[i]' + totalCookiesPerHour[i]);
+// var totalCell = document.createElement('td');
+// totalCell.textContent = totalCookiesPerHour[i];

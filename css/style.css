@@ -1,13 +1,4 @@
-/*
-Custom font for highlights
-sans-serif web font for data
-serif web font for text
-  different font colors for each of these three fonts
-------------------------------------------------------*/
-/*
-Background color for default page
-different background color for elements
-------------------------------------------------------*/
+
 * {
   background-color: rgb(198, 224, 233);
 }
@@ -19,6 +10,12 @@ body {
   border: 10px solid;
 }
 
+/*
+Images
+------------------------------------------------------*/
+img {
+  border-radius: 10px;
+}
 
 #salmon, #cookie {
   width: 72%;
@@ -27,6 +24,30 @@ body {
   align-items: center;
 }
 
+#cookie {
+  width: 40%;
+  border-width: 10px;
+}
+
+#chinook, #family {
+  display: block;
+  margin: 40px;
+  width: 90%;
+}
+
+#cutter {
+  margin: 40px;
+  width: 30%;
+  float: right;
+}
+
+#shirt, #stuffies {
+  width: 24%;
+}
+
+/*
+Text
+-------------------------------------------------*/
 h1 {
   font-family: "Vast Shadow", cursive;
   font-size: 56px;
@@ -40,31 +61,31 @@ h1 {
   padding: 20px;
 }
 
-#cookie {
-  width: 40%;
-  border-width: 10px;
-  border-radius: 10px;
-}
 
 h2 {
   font-size: 48px;
   width: 80%;
-  margin: 10px auto 40px auto;
+  margin: 20px auto 40px auto;
   text-align: center;
 }
 
 
-#locations, #ingredients {
+#locations, #ingredients, #merch {
   border-style: double;
   padding: 10px;
-  margin: 10px;
+  margin: 50px 15px;
   border-width: 5px 0px 5px 0px;
   border-color: rgb(9, 51, 75);
+  background-color: rgb(183, 211, 219);
 }
 
+
 #ingredients {
-  margin: 10px auto 10px 40px;
+  width: 48%;
+  float: right;
+  box-sizing: border-box;
 }
+
 
 #ingredients p::first-line {
   font-weight: bold;
@@ -72,6 +93,10 @@ h2 {
 
 #punch {
   font-weight: bold;
+}
+
+p, ul, li, h3, h4, h6, em {
+  background-color: inherit;
 }
 
 h3 {
@@ -93,26 +118,15 @@ h6 {
   width: 80%;
 }
 
-#chinook, #family {
-  display: block;
-  margin: 20px 40px;
-  width: 90%;
-}
-
-#cutter {
-  display: block;
-  margin: 20px auto;
-  width: 90%;
-}
 
 nav {
-  /*padding: 0;*/
   width: 40%;
 }
 
 nav ul li {
   display: inline;
   padding: 20px;
+  font-weight: bold;
 }
 
 /* PSC grid system
