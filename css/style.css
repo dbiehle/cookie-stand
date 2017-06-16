@@ -29,7 +29,7 @@ body {
 
 h1 {
   font-family: "Vast Shadow", cursive;
-  font-size: 48px;
+  font-size: 56px;
   color: rgb(34, 148, 11);
   width: 80%;
   margin: 20px auto;
@@ -47,28 +47,72 @@ h1 {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 48px;
   width: 80%;
-  margin: 0px auto 40px auto;
+  margin: 10px auto 40px auto;
   text-align: center;
 }
 
-#locations {
+
+#locations, #ingredients {
   border-style: double;
   padding: 10px;
-  margin: 0px 10px 0px 10px;
+  margin: 10px;
   border-width: 5px 0px 5px 0px;
   border-color: rgb(9, 51, 75);
 }
 
+#ingredients {
+  margin: 10px auto 10px 40px;
+}
+
+#ingredients p::first-line {
+  font-weight: bold;
+}
+
+#punch {
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 40px;
+  width: 80%;
+  text-align: center;
+  margin: 10px;
+}
+
+h4 {
+  font-size: 32px;
+  width: 80%;
+  margin: 5px;
+  text-align: center;
+}
+
+h6 {
+  font-size: 16px;
+  width: 80%;
+}
+
 #chinook, #family {
   display: block;
-  margin: 40px 5px 40px 5px;
+  margin: 20px 40px;
   width: 90%;
+}
+
+#cutter {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+}
+
+nav {
+  /*padding: 0;*/
+  width: 40%;
 }
 
 nav ul li {
   display: inline;
+  padding: 20px;
 }
 
 /* PSC grid system
